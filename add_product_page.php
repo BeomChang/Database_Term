@@ -38,7 +38,7 @@
 
             if($result) {
                 echo("정상 입력 되었습니다!");
-                $query = "SELECT * FROM " . "transaction WHERE " . "transactionNumber = '".$tnumber."'";
+                $query = "SELECT * FROM product WHERE " . "productID = '".$pid."'";
                 $result = mysqli_query($conn, $query);
             }
             else {
