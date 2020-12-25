@@ -68,7 +68,7 @@
                 if($value != "")
                     $opt_cnt = $opt_cnt + 1;
             }
-            
+
             print("최종 cnt: " . $opt_cnt);
 
             foreach($parameter as $key => $value) {
@@ -88,7 +88,6 @@
             // if($psuppliername != "")
             //     $query = $query . "AND " . "supplierName = '".$psuppliername."'";
 
-            print($opt_cnt);
             print($query);
 
             $result = mysqli_query($conn, $query);
