@@ -69,13 +69,12 @@
                 </tr>
 
                 <?php
-                    for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
-                        print("<tr>");
-                        foreach($row as $key => $value) {
-                            print("<td>$value</td>");
-                        }
-                        print("</td>");
-                    }
+                    print("<tr>");
+                    print("<td>".$row[0]."</td>");
+                    print("<td>".$row[1]."</td>");
+                    print("<td>".$row[2]."</td>");
+                    print("<td>".$row[3]."</td>");
+                    print("</tr>");
                 ?>
             </table>
         </div>
