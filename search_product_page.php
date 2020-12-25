@@ -65,6 +65,7 @@
             );
 
             foreach ($parameter as $key => $value) {
+                print("1\n");
                 if($value != "")
                     $opt_cnt++;
             }
