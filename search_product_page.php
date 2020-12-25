@@ -76,10 +76,10 @@
                 if($value != "") {
                     $query = $query . "$key = '".$value."'";
                     $opt_cnt--;
-                }
 
-                if($opt_cnt != 0)
+                    if($opt_cnt > 0)
                         $query = $query . " AND ";
+                }
             }
 
             // if($pid != "")
