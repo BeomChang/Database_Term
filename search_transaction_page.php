@@ -17,47 +17,84 @@
 
     <body>
         <?php
+            $opt_cnt = 0;
+
             if(!$_SERVER["REQUEST_METHOD"] == "POST") {
                 echo("<p>POST Error!</p></body></html>");
                 die();
             }
             else {
-                $tnumber = isset($_POST["tnumber"]) ? $_POST["tnumber"] : "";
-                $tproductnumber = isset($_POST["tproductnumber"]) ? $_POST["tproductnumber"] : "";
-                $tprice = isset($_POST["tprice"]) ? $_POST["tprice"] : "";
-                $tdate = isset($_POST["tdate"]) ? $_POST["tdate"] : "";
-                $tcustomername = isset($_POST["tcustomername"]) ? $_POST["tcustomername"] : "";
+                if(isset($_POST["tnumber"])) {
+                    $tnumber = $_POST["tnumber"];
+                }
+                else {
+                    $tnumber = "";
+                }
+
+                if(isset($_POST["tproductnumber"])) {
+                    $tproductnumber = $_POST["tproductnumber"];
+                }
+                else {
+                    $tproductnumber = "";
+                }
+
+                if(isset($_POST["tprice"])) {
+                    $tprice = $_POST["tprice"];
+                }
+                else {
+                    $tprice = "";
+                }
+
+                if(isset($_POST["tdate"])) {
+                    $tdate = $_POST["tdate"];
+                }
+                else {
+                    $tdate = "";
+                }
+
+                if(isset($_POST["tcustomername"])) {
+                    $tcustomername = $_POST["tcustomername"];
+                }
+                else {
+                    $tcustomername = "";
+                }
             }
 
-            $server = "3.35.24.226:3306";
-            $user = "test";
-            $pass = "testtest";
-            $dbname = "hw2";
-            $conn = new mysqli($server, $user, $pass, $dbname);
+            $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
-            if(!$conn)
-                die("< class = 'error'>Connection failed: " . mysqli_connect_error() . "</>");
-            if(!($result = mysqli_query($conn, $query))) {
-                print("<p class='error'>could not execute query! : " . mysqli_error_list() . "</p>");
-                die(mysqli_error($database));
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-                        
-            $query = "
-            SELECT * FROM product
-            WHERE transactionNumber = '$tnumber' 
-            ";
 
-            if($tproductnumber != "")
-                $query = $query . "AND productID = '$tproductnumber' ";
-            if($tprice != "")
-                $query = $query . "AND price = '$tprice'";
-            if($tdate != "")
-                $query = $query . "AND " . "date = '$tdate'";
-            if($tcustomername != "")
-                $query = $query . "AND customerName = '$tcustomername'";
+            $query = "SELECT * FROM " . "transaction ";
+
+            $parameter = array (
+                'transactionNumber' => $tnumber,
+                'productID' => $tproductnumber,
+                'price' => $tprice,
+                'date' => $tdate,
+                'customerName' => $tcustomername
+            );
+
+            foreach ($parameter as $key => $value) {
+                if($value != "")
+                    $opt_cnt = $opt_cnt + 1;
+            }
+
+            if($opt_cnt > 0)
+                $query = $query . "WHERE ";
+
+            foreach($parameter as $key => $value) {
+                if($value != "") {
+                    $query = $query . "$key = '".$value."'";
+                    $opt_cnt--;
+
+                    if($opt_cnt > 0)
+                        $query = $query . " AND ";
+                }
+            }
 
             $result = mysqli_query($conn, $query);
-
             mysqli_close($conn);
         ?>
 
@@ -73,9 +110,9 @@
                 </tr>
 
                 <?php
-                    for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
+                    for($counter = 0; $row = mysqli_fetch_row($result); $counter++) {
                         print("<tr>");
-                        foreach($row as $key => $value) {
+                        foreach ($row as $key => $value) {
                             print("<td>$value</td>");
                         }
                         print("</tr>");
