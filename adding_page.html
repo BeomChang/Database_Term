@@ -12,51 +12,51 @@
         <p>이 페이지는 고객, 거래, 상품을 추가할 수 있는 페이지 입니다.</p>
 
         <div id="addCustomer">
-            <form id="searchCustomerForm" name="searchCustomerForm" action="search_customer_page.php" method="POST">
+            <form id="searchCustomerForm" name="searchCustomerForm" action="add_customer_page.php" method="POST">
                 <label for="cname">고객 이름(*): </label>
-                <input type="text" id="cname" name="cname"><br>
+                <input type="text" id="cname" name="cname" required><br>
                 <label for="cphone">고객 전화번호: </label>
-                <input type="text" id="cphone" name="cphone"><br>
+                <input type="text" id="cphone" name="cphone" required><br>
                 <label for="caddress">고객 주소: </label>
-                <input type="text" id="caddress" name="caddress"><br>
+                <input type="text" id="caddress" name="caddress" required><br>
                 
                 <label for="cgender">성별</label><br>
-                <input type="radio" id="male" name="cgender" value="Male">
+                <input type="radio" id="male" name="cgender" value="Male" checked>
                 <label for="male">남성</label><br>
                 <input type="radio" id="female" name="cgender" value="Female">
                 <label for="female">여성</label><br><br>
 
-                <input type="submit" value="고객 검색">
+                <input type="submit" value="고객 추가">
             </form>
         </div>
 
         <div id="addTransaction">
-            <form id="searchTransactionForm" name="searchTransactionForm" action="/search_transaction_page.php" method="POST">
+            <form id="searchTransactionForm" name="searchTransactionForm" action="add_transaction_page.php" method="POST">
                 <label for="tnumber">거래 번호(*): </label>
-                <input type="number" id="tnumber" name="tnumber"><br>
+                <input type="number" id="tnumber" name="tnumber" required><br>
                 <label for="tproductnumber">거래 상품 번호: </label>
-                <input type="number" id="tproductnumber" name="tproductnumber"><br>
+                <input type="number" id="tproductnumber" name="tproductnumber" required><br>
                 <label for="tprice">거래 가격: </label>
-                <input type="number" id="tprice" name="tprice"><br>
+                <input type="number" id="tprice" name="tprice" required><br>
                 <label for="tdate">거래 일자: </label>
-                <input type="date" id="tdate" name="tdate"><br>
+                <input type="date" id="tdate" name="tdate" required><br>
                 <label for="tcustomername">거래 고객 이름: </label>
-                <input type="text" id="tcustomername" name="tcustomername"><br><br>
+                <input type="text" id="tcustomername" name="tcustomername" required><br><br>
 
-                <input type="submit" value="거래 검색">
+                <input type="submit" value="거래 추가">
             </form>
         </div>
 
         <div id="addProduct">
-            <form id="searchProductForm" name="searchProductForm" action="/search_product_page.php" method="POST">
+            <form id="searchProductForm" name="searchProductForm" action="add_product_page.php" method="POST">
                 <label for="pid">상품 번호(*): </label>
-                <input type="number" id="pid" name="pid"><br>
+                <input type="number" id="pid" name="pid" required><br>
                 <label for="pname">상품 이름: </label>
-                <input type="text" id="pname" name="pname"><br>
+                <input type="text" id="pname" name="pname" required><br>
                 <label for="psuppliername">상품 공급 업자: </label>
-                <input type="text" id="psuppliername" name="psuppliername"><br><br>
+                <input type="text" id="psuppliername" name="psuppliername" required><br><br>
 
-                <input type="submit" value="상품 검색">
+                <input type="submit" value="상품 추가">
             </form>
         </div>
     </body>
