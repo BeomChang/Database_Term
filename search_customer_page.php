@@ -71,8 +71,10 @@
                 <?php
                     for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
                         print("<tr>");
-                        print($row[i]);
-                        print("</tr>");
+                        foreach($row as $key => $value) {
+                            print("<td>$value</td>");
+                        }
+                        print("</td>");
                     }
                 ?>
             </table>
