@@ -61,7 +61,7 @@
             mysqli_close($conn);
         ?>
 
-        <h1>거래번호 <?php echo($tnumber)?> 검색결과</h1>
+        <h1>거래 검색 결과</h1>
         <div>
             <table>
                 <tr>

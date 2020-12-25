@@ -17,15 +17,40 @@
 
     <body>
         <?php
-            if(!$_SERVER["REQUEST_METHOD"] == "POST") {     // POST로 search_customer_page.php 에 넘어온 것이 아니라면
-                echo("<p>POST Error!</p></body></html>");   // Error Message 출력
-                die();                                      // Script Execution 종료
+            $opt_cnt = 0;
+
+            if(!$_SERVER["REQUEST_METHOD"] == "POST") {
+                echo("<p>POST Error!</p></body></html>");
+                die();
             }
-            else {                                          // POST로 search_customer_page.php 에 넘어온 것이라면
-                $cname = isset($_POST["cname"]) ? $_POST["cname"] : "";
-                $cphone = isset($_POST["cphone"]) ? $_POST["cphone"] : "";
-                $caddress = isset($_POST["caddress"]) ? $_POST["caddress"] : "";
-                $cgender = isset($_POST["cgender"]) ? $_POST["cgender"] : "";
+            else {
+                if(isset($_POST["cname"])) {
+                    $cname = $_POST["cname"];
+                }
+                else {
+                    $cname = "";
+                }
+
+                if(isset($_POST["cphone"])) {
+                    $cphone = $_POST["cphone"];
+                }
+                else {
+                    $cphone = "";
+                }
+
+                if(isset($_POST["caddress"])) {
+                    $caddress = $_POST["caddress"];
+                }
+                else {
+                    $caddress = "";
+                }
+
+                if(isset($_POST["cgender"])) {
+                    $cgender = $_POST["cgender"];
+                }
+                else {
+                    $cgender = "";
+                }
             }
 
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
@@ -34,14 +59,32 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            $query = "SELECT * FROM customer WHERE name = '".$cname."'";
+            $query = "SELECT * FROM customer ";
 
-            if($cphone != "")
-                $query = $query . "AND phone = '".$cphone."'";
-            if($caddress != "")
-                $query = $query . "AND " . "address = '".$caddress."'";
-            if($cgender != "")
-                $query = $query . "AND " . "gender = '".$cgender."'";
+            $parameter = array (
+                'name' => $cname,
+                'phone' => $cphone,
+                'address' => $caddress,
+                'gender' => $cgender
+            );
+
+            foreach ($parameter as $key => $value) {
+                if($value != "")
+                    $opt_cnt = $opt_cnt + 1;
+            }
+
+            if($opt_cnt > 0)
+                $query = $query . "WHERE ";
+
+            foreach($parameter as $key => $value) {
+                if($value != "") {
+                    $query = $query . "$key = '".$value."'";
+                    $opt_cnt--;
+
+                    if($opt_cnt > 0)
+                        $query = $query . " AND ";
+                }
+            }
 
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_row($result);
@@ -49,7 +92,7 @@
             mysqli_close($conn);
         ?>
 
-        <h1>고객명 <?php echo($cname)?> 검색결과</h1>
+        <h1>고객 검색 결과</h1>
         <div>
             <table>
                 <tr>
