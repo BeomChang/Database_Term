@@ -83,6 +83,7 @@
             // if($psuppliername != "")
             //     $query = $query . "AND " . "supplierName = '".$psuppliername."'";
 
+            print($opt_cnt);
             print($query);
 
             $result = mysqli_query($conn, $query);
