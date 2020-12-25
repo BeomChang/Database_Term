@@ -17,14 +17,35 @@
 
     <body>
         <?php
+            $opt_cnt = 0;
             if(!$_SERVER["REQUEST_METHOD"] == "POST") {
                 echo("<p>POST Error!</p></body></html>");
                 die();
             }
             else {
-                $pname = isset($_POST["pname"]) ? $_POST["pname"] : "";
-                $pid = isset($_POST["pid"]) ? $_POST["pid"] : "";
-                $psuppliername = isset($_POST["psuppliername"]) ? $_POST["psuppliername"] : "";
+                if(isset($_POST["pname"])) {
+                    $opt_cnt++;
+                    $pname = $_POST["pname"];
+                }
+                else {
+                    $pname = "";
+                }
+                
+                if(isset($_POST["pid"])) {
+                    $opt_cnt++;
+                    $pid = $_POST["pid"];
+                }
+                else {
+                    $pid = "";
+                }
+
+                if(isset($_POST["psuppliername"])) {
+                    $opt_cnt++;
+                    $psuppliername = $_POST["psuppliername"];
+                }
+                else {
+                    $psuppliername = "";
+                }
             }
 
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
@@ -33,10 +54,32 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            $query = "SELECT * FROM product WHERE productID = '".$pid."'";
+            // $query = "SELECT * FROM product WHERE productID = '".$pid."'";
+            $query = "SELECT * FROM product ";
 
+            if($opt_cnt == 0)
+                ;
+            else
+                $query = $query . "WHERE ";
+            
+
+            if($opt_cnt == 1) {
+                if($pid != "")
+                    $query = $query . "pid = '".$pname."'";
+                if($pname != "")
+                    $query = $query . "name = '".$pname."'";
+                if($psuppliername != "")
+                    $query = $query . "supplierName = '".$psuppliername."'";
+            }
+            else {
+                
+            }
+                
+
+            if($pid != "")
+                $query = $query . "pid = '".$pname."'";
             if($pname != "")
-            $query = $query . "AND name = '".$pname."'";
+                $query = $query . "AND name = '".$pname."'";
             if($psuppliername != "")
                 $query = $query . "AND " . "supplierName = '".$psuppliername."'";
 
