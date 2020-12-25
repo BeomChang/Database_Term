@@ -55,9 +55,6 @@
             // $query = "SELECT * FROM product WHERE productID = '".$pid."'";
             $query = "SELECT * FROM product ";
 
-            if($opt_cnt > 0)
-                $query = $query . "WHERE ";
-
             $parameter = array (
                 'name' => $pname,
                 'productID' => $pid,
@@ -69,7 +66,8 @@
                     $opt_cnt = $opt_cnt + 1;
             }
 
-            print("최종 cnt: " . $opt_cnt);
+            if($opt_cnt > 0)
+                $query = $query . "WHERE ";
 
             foreach($parameter as $key => $value) {
                 if($value != "") {
