@@ -66,9 +66,7 @@
 
             foreach ($parameter as $key => $value) {
                 if($value != "")
-                    print($value);
-                else
-                    print("없음");
+                    $opt_cnt++;
             }
             print("최종 cnt: " . $opt_cnt);
 
