@@ -113,11 +113,11 @@
                     for($counter = 0; $row = mysqli_fetch_row($result); $counter++) {
                         print("<tr>");
                         foreach ($row as $key => $value) {
-                            if($key == "price") {
-                                print("<td>$".$value."</td>");
+                            if($key != "price") {
+                                print("<td>$value</td>");
                             }
                             else {
-                                print("<td>$value</td>");
+                                print("<td>$".$value."</td>");
                             }
                         }
                         print("</tr>");
