@@ -34,76 +34,49 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            // $query = "SELECT * FROM customer WHERE name = '".$cname."'";
-            $query = "SELECT * FROM customer WHERE " . "name = '".$cname."'";
+            $query = "SELECT * FROM customer WHERE name = '".$cname."'";
+
+            if($cphone != "")
+                $query = $query . "AND phone = '".$cphone."'";
+            if($caddress != "")
+                $query = $query . "AND " . "address = '".$caddress."'";
+            if($cgender != "")
+                $query = $query . "AND " . "gender = '".$cgender."'";
+
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_row($result);
-            echo $row[0];
-            echo "\n";
-            echo $row[1];
-            echo "\n";
-            echo $row[2];
-            echo "\n";
-            echo $row[3];
-            echo "\n";
+
+            mysqli_close($conn);
+
+            // echo $row[0];
+            // echo "\n";
+            // echo $row[1];
+            // echo "\n";
+            // echo $row[2];
+            // echo "\n";
+            // echo $row[3];
+            // echo "\n";
         ?>
+
+        <h1>고객명 <?php echo($cname)?> 검색결과</h1>
+        <div>
+            <table>
+                <tr>
+                    <th>고객 이름</th>
+                    <th>고객 전화번호</th>
+                    <th>고객 주소</th>
+                    <th>고객 성별</th>
+                </tr>
+
+                <?php
+                    for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
+                        print("<tr>");
+                        print($row[i]);
+                        print("</tr>");
+                    }
+                ?>
+            </table>
+        </div>
+
     </body>
 </html>
-
-
-<!-- 
-
-
-
-
-//             $query = "
-//             SELECT * FROM customer
-//             WHERE name = '$cname'
-//             ";
-
-//             if(!$conn)
-//                 die("<p class='error'>Connection failed: " . mysqli_connect_error() . "</p>");
-            
-//             if(!($result = mysqli_query($conn, $query))) {
-//                 print("<p class='error'>could not execute query! : " . mysqli_error_list() . "</p>");
-//                 die(mysqli_error($database));
-//             }
-
-//             if($cphone != "")
-//                 $query = $query . "AND phone = '$cphone' ";
-//             if($caddress != "")
-//                 $query = $query . "AND ". "address = '$caddress' ";
-//             if($cgender != "")
-//                 $query = $query . "AND gender = '$cgender'";
-
-
-//             print($query);
-//             $result = mysqli_query($conn, $query);
-
-//             mysqli_close($conn);
-//         ?>
-
-//         <h1>고객명 <?php echo($cname)?> 검색결과</h1>
-//         <div>
-//         <table>
-//                     <tr>
-//                         <th>고객 이름</th>
-//                         <th>고객 전화번호</th>
-//                         <th>고객 주소</th>
-//                         <th>고객 성별</th>
-//                     </tr>
-
-//                     <?php
-//                         for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
-//                             print("<tr>");
-//                             foreach($row as $key => $value) {
-//                                 print("<td>$value</td>");
-//                             }
-//                             print("</tr>");
-//                         }
-//                     ?>
-//         </div>
-//     </body>
-// </html>
-dsafsadf
-sadfasdf-->
