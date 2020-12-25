@@ -29,6 +29,7 @@
                 }
                 else {
                     $pname = "";
+                    $opt_cnt--;
                 }
 
                 if(isset($_POST["pid"])) {
@@ -37,6 +38,7 @@
                 }
                 else {
                     $pid = "";
+                    $opt_cnt--;
                 }
 
                 if(isset($_POST["psuppliername"])) {
@@ -45,6 +47,7 @@
                 }
                 else {
                     $psuppliername = "";
+                    $opt_cnt--;
                 }
             }
 
@@ -74,7 +77,7 @@
                     $opt_cnt--;
 
                     if($opt_cnt != 0)
-                        $query = $query . "AND ";
+                        $query = $query . " AND ";
                 }
             }
 
