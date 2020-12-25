@@ -86,6 +86,7 @@
                 }
             }
 
+            $query = "select * from customer where gender = 'Male' order by name";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_row($result);
 
