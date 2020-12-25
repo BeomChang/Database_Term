@@ -24,32 +24,33 @@
             }
             else {
                 if(isset($_POST["pname"])) {
-                    $opt_cnt++;
+                    $opt_cnt += 1;
                     $pname = $_POST["pname"];
                 }
                 else {
                     $pname = "";
-                    $opt_cnt--;
+                    $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["pid"])) {
-                    $opt_cnt++;
+                    $opt_cnt += 1;
                     $pid = $_POST["pid"];
                 }
                 else {
                     $pid = "";
-                    $opt_cnt--;
+                    $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["psuppliername"])) {
-                    $opt_cnt++;
+                    $opt_cnt += 1;
                     $psuppliername = $_POST["psuppliername"];
                 }
                 else {
                     $psuppliername = "";
-                    $opt_cnt--;
+                    $opt_cnt -= 1;
                 }
             }
+            print($opt_cnt);
 
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
