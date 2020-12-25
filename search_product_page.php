@@ -56,6 +56,9 @@
             
             // $query = "SELECT * FROM product WHERE productID = '".$pid."'";
             $query = "SELECT * FROM product ";
+
+            print($opt_cnt);
+
             if($opt_cnt > 0)
                 $query = $query . "WHERE ";
 
@@ -82,7 +85,7 @@
             // if($psuppliername != "")
             //     $query = $query . "AND " . "supplierName = '".$psuppliername."'";
 
-            print($opt_cnt);
+            // print($opt_cnt);
             print($query);
 
             $result = mysqli_query($conn, $query);
