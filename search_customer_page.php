@@ -86,12 +86,8 @@
                 }
             }
 
-            $query = "select * from customer order by name";
             $result = mysqli_query($conn, $query);
-
             mysqli_close($conn);
-
-            print($query);
         ?>
 
         <h1>고객 검색 결과</h1>

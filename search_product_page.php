@@ -79,8 +79,6 @@
             }
 
             $result = mysqli_query($conn, $query);
-            $row = mysqli_fetch_row($result);
-
             mysqli_close($conn);
         ?>
 
