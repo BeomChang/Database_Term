@@ -34,7 +34,8 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            $query = "SELECT * FROM customer WHERE name = '".$cname."'";
+            // $query = "SELECT * FROM customer WHERE name = '".$cname."'";
+            $query = "SELECT * FROM customer WHERE " . "name = '".$cname."'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_row($result);
             echo $row[0];
