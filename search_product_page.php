@@ -18,6 +18,7 @@
     <body>
         <?php
             $opt_cnt = 0;
+            print($opt_cnt);
             if(!$_SERVER["REQUEST_METHOD"] == "POST") {
                 echo("<p>POST Error!</p></body></html>");
                 die();
@@ -29,7 +30,7 @@
                 }
                 else {
                     $pname = "";
-                    $opt_cnt -= 1;
+                    // $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["pid"])) {
@@ -38,7 +39,7 @@
                 }
                 else {
                     $pid = "";
-                    $opt_cnt -= 1;
+                    // $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["psuppliername"])) {
@@ -47,7 +48,7 @@
                 }
                 else {
                     $psuppliername = "";
-                    $opt_cnt -= 1;
+                    // $opt_cnt -= 1;
                 }
             }
             print($opt_cnt);
