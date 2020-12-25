@@ -90,6 +90,8 @@
             $row = mysqli_fetch_row($result);
 
             mysqli_close($conn);
+
+            print($query);
         ?>
 
         <h1>고객 검색 결과</h1>
