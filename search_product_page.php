@@ -25,33 +25,26 @@
             }
             else {
                 if(isset($_POST["pname"])) {
-                    $opt_cnt += 1;
                     $pname = $_POST["pname"];
                 }
                 else {
                     $pname = "";
-                    // $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["pid"])) {
-                    $opt_cnt += 1;
                     $pid = $_POST["pid"];
                 }
                 else {
                     $pid = "";
-                    // $opt_cnt -= 1;
                 }
 
                 if(isset($_POST["psuppliername"])) {
-                    $opt_cnt += 1;
                     $psuppliername = $_POST["psuppliername"];
                 }
                 else {
                     $psuppliername = "";
-                    // $opt_cnt -= 1;
                 }
             }
-            print("덧셈 결과: ". $opt_cnt);
 
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
@@ -70,6 +63,12 @@
                 'productID' => $pid,
                 'supplierName' => $psuppliername
             );
+
+            foreach ($parameter as $key => $value) {
+                if($value != "")
+                    $opt_cnt++;
+            }
+            print("최종 cnt: " . $opt_cnt);
 
             foreach($parameter as $key => $value) {
                 if($value != "") {
