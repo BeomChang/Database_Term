@@ -65,10 +65,10 @@
             );
 
             foreach ($parameter as $key => $value) {
-                print("1\n");
                 if($value != "")
-                    $opt_cnt++;
+                    $opt_cnt = $opt_cnt + 1;
             }
+            
             print("최종 cnt: " . $opt_cnt);
 
             foreach($parameter as $key => $value) {
