@@ -35,6 +35,7 @@
 }
 
 #searchBtn {
+    width: 30px;
     background-color: green;
     border: none;
     color: white;
@@ -46,6 +47,7 @@
 }
 
 #addBtn {
+    width: 30px;
     background-color: blue;
     border: none;
     color: white;
