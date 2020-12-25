@@ -47,15 +47,6 @@
             $row = mysqli_fetch_row($result);
 
             mysqli_close($conn);
-
-            // echo $row[0];
-            // echo "\n";
-            // echo $row[1];
-            // echo "\n";
-            // echo $row[2];
-            // echo "\n";
-            // echo $row[3];
-            // echo "\n";
         ?>
 
         <h1>고객명 <?php echo($cname)?> 검색결과</h1>
@@ -78,6 +69,5 @@
                 ?>
             </table>
         </div>
-
     </body>
 </html>

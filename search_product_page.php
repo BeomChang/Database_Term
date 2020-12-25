@@ -27,55 +27,41 @@
                 $psuppliername = isset($_POST["psuppliername"]) ? $_POST["psuppliername"] : "";
             }
 
-            $server = "3.35.24.226:3306";
-            $user = "test";
-            $pass = "testtest";
-            $dbname = "hw2";
-            $conn = new mysqli($server, $user, $pass, $dbname);
+            $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
-            if(!$conn)
-                die("<p class = 'error'>Connection failed: " . mysqli_connect_error() . "</p>");
-            if(!($result = mysqli_query($conn, $query))) {
-                print("<p class='error'>could not execute query!</p>");
-                die(mysqli_error($database));
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-            
-            $query = "
-            SELECT * FROM product
-            WHERE productID = $pid 
-            ";
+
+            $query = "SELECT * FROM product WHERE productID = '".$pid."'";
 
             if($pname != "")
-                $query = $query . "AND " . "name = '$pname' ";
+            $query = $query . "AND name = '".$pname."'";
             if($psuppliername != "")
-                $query = $query . "AND supplierName = '$psuppliername'";
-            
-            // $result = mysqli_query($conn, $query);
+                $query = $query . "AND " . "supplierName = '".$psuppliername."'";
+
             $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_row($result);
 
-
-            print($query);
-            print($result[0]);
+            mysqli_close($conn);
         ?>
 
         <h1>상품번호 <?php echo($pid)?> 검색결과</h1>
         <div>
             <table>
-                    <tr>
-                        <th>상품 번호</th>
-                        <th>상품 이름</th>
-                        <th>상품 공급 업자</th>
-                    </tr>
+                <tr>
+                    <th>상품 이름</th>
+                    <th>상품 번호</th>
+                    <th>상품 공급 업자</th>
+                </tr>
 
-                    <?php
-                        for($counter = 0; $row = mysqli_fetch_row($result); ++$counter) {
-                            print("<tr>");
-                            foreach($row as $key => $value) {
-                                print("<td>$value</td>");
-                            }
-                            print("</tr>");
-                        }
-                    ?>
+                <?php
+                    print("<tr>");
+                    print("<td>".$row[0]."</td>");
+                    print("<td>".$row[1]."</td>");
+                    print("<td>".$row[2]."</td>");
+                    print("</tr>");
+                ?>
             </table>
         </div>
     </body>
