@@ -51,7 +51,7 @@
                     // $opt_cnt -= 1;
                 }
             }
-            print($opt_cnt);
+            print("덧셈 결과: ". $opt_cnt);
 
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
