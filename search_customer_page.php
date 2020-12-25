@@ -34,20 +34,20 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            $query = "SELECT * FROM customer WHERE name = 'Aurie Mudie'";
+            $query = "SELECT * FROM customer WHERE name = '".$cname."'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_row($result);
             echo $row[0];
             echo "\n";
+            echo $row[1];
+            echo "\n";
+            echo $row[2];
+            echo "\n";
+            echo $row[3];
+            echo "\n";
         ?>
     </body>
 </html>
-
-
-
-
-
-
 
 
 <!-- 
