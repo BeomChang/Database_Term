@@ -34,6 +34,25 @@
     margin-bottom: 50px;
 }
 
+#q4_a {
+    border: 1px solid black;
+    padding: 20;
+    margin-bottom: 50px;
+}
+
+#q4_b {
+    border: 1px solid black;
+    padding: 20;
+    margin-bottom: 50px;
+}
+
+#q4_c {
+    border: 1px solid black;
+    padding: 20;
+    margin-bottom: 50px;
+}
+
+
 #searchBtn {
     width: 100px;
     background-color: green;

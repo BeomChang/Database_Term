@@ -11,8 +11,33 @@
         <h1>추가 기능 페이지</h1>
         <p>원하시는 기능을 선택하세요</p>
 
-        <input type="button" id="btnA" value="A번" onclick="location.href='query_A.php'">
-        <input type="button" id="btnB" value="B번" onclick="location.href='query_B.php'">
-        <input type="button" id="btnC" value="C번" onclick="location.href='query_C.php'">
+        <div id="q4_a">
+            <form id="q4_a_Form" name="q4_a_Form" action="query_A.php" method="POST">
+                <p>남자보다 여자가 많이 산 상품의 이름</p>
+                <input type="submit" value="A번" id="btnA"><br>
+            </form>
+        </div>
+
+        <div id="q4_b">
+            <form id="q4_b_Form" name="q4_b_Form" action="query_B.php" method="POST">
+                <p>주어진 날 이전에 가장 많은 거래(금액기준)가 이루어진 k가지 상품</p>
+                <label for="tdate">거래 일자: </label>
+                <input type="date" id="tdate" name="tdate" required><br>
+                <label for="tcnt">k: </label>
+                <input type="text" id="tcnt" name="tcnt" required><br>
+
+                <input type="submit" value="B번" id="btnB"><br>
+            </form>
+        </div>
+
+        <div id="q4_c">
+            <form id="q4_c_Form" name="q4_c_Form" action="query_C.php" method="POST">
+                <p>하나의 supplier에서 m번 이상의 제품을 산 고객의 이름</p>
+                <label for="pcnt">m: </label>
+                <input type="text" id="pcnt" name="pcnt" required><br>
+
+                <input type="submit" value="C번" id="btnC"><br>
+            </form>
+        </div>
     </body>
 </html>
