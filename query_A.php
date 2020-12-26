@@ -17,6 +17,11 @@
 
     <body>
         <?php
+            if(!$_SERVER["REQUEST_METHOD"] == "POST") {
+                echo("<p>POST Error!</p></body></html>");
+                die();
+            }
+            
             $conn = mysqli_connect( '15.164.229.129', 'test', 'testtest', 'test', '3306');
 
             if (mysqli_connect_errno()) {
