@@ -56,8 +56,9 @@
         <div>
             <table>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th>고객 이름</th>
+                    <th>상품 공급 업자</th>
+                    <th>구매 횟수</th>
                 </tr>
 
                 <?php
