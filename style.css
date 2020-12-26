@@ -1,41 +1,41 @@
 #searchCustomer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #searchTransaction {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #searchProduct {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #addCustomer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #addTransaction {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #addProduct {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
 
 #q4_a {
-    border: 1px solid black;
+    border: 1px solid #000000;
     padding: 20;
     margin-bottom: 50px;
 }
@@ -47,7 +47,7 @@
 }
 
 #q4_c {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20;
     margin-bottom: 50px;
 }
