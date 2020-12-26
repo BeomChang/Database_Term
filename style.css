@@ -49,7 +49,7 @@
 #addBtn {
     width: 100px;
     background-color: blue;
-    border: none;
+    border: 1px solid black;
     color: white;
     padding: 15px 15px;
     text-align: center;
@@ -61,7 +61,7 @@
 #addtiveBtn {
     width: 100px;
     background-color: red;
-    border: none;
+    border: 1px solid black;
     color: white;
     padding: 15px 15px;
     text-align: center;
@@ -73,7 +73,7 @@
 #btnA {
     width: 100px;
     background-color: white;
-    border: none;
+    border: 1px solid black;
     color: black;
     padding: 15px 15px;
     text-align: center;
