@@ -54,6 +54,8 @@
 
             $result = mysqli_query($conn, $query);
             mysqli_close($conn);
+
+            print($query);
         ?>
 
         <h1>주어진 날 이전에 가장 많은 거래(금액기준)가 이루어진 k가지 상품 목록</h1>
