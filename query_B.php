@@ -47,7 +47,7 @@
                                     SELECT transaction.*, product.name productName
                                     FROM transaction, product
                                     WHERE transaction.date < '".$tdate."' AND transaction.productID = product.productID
-                                ) as pt
+                                ) AS pt
                         GROUP BY pt.productName
                         ORDER BY sumPrice DESC
                         LIMIT $tcnt";
@@ -61,7 +61,7 @@
             <table>
                 <tr>
                     <th>상품 이름</th>
-                    <th>상품 거래 금액 총계</th>
+                    <th>상품 거래 금액 총계 (단위: $)</th>
                 </tr>
 
                 <?php
