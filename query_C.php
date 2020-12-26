@@ -46,7 +46,7 @@
                                             ) AS pt
                                     GROUP BY pt.customerName, pt.supplierName
                                 ) AS times
-                        WHERE times.purchaseTimes >= pcnt;";
+                        WHERE times.purchaseTimes >= $pcnt;";
 
             $result = mysqli_query($conn, $query);
             mysqli_close($conn);
