@@ -22,8 +22,17 @@
                 die();
             }
             else {
-                if(isset($_POST["cname"])) {
-                    $cname = $_POST["cname"];
+                if(isset($_POST["tdate"])) {
+                    $tdate = $_POST["tdate"];
+                }
+                else {
+                    $tdate = "";
+                }
+                if(isset($_POST["tcnt"])) {
+                    $tcnt = $_POST["tcnt"];
+                }
+                else {
+                    $tcnt = "";
                 }
             }
 
@@ -37,11 +46,11 @@
                         FROM	(	
                                     SELECT transaction.*, product.name productName
                                     FROM transaction, product
-                                    WHERE transaction.date < '2020-12-31' AND transaction.productID = product.productID
+                                    WHERE transaction.date < '".$tdate."' AND transaction.productID = product.productID
                                 ) as pt
                         GROUP BY pt.productName
                         ORDER BY sumPrice DESC
-                        LIMIT 3";
+                        LIMIT '".$tcnt."'";
 
             $result = mysqli_query($conn, $query);
             mysqli_close($conn);
