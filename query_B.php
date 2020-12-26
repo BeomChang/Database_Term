@@ -50,7 +50,7 @@
                                 ) as pt
                         GROUP BY pt.productName
                         ORDER BY sumPrice DESC
-                        LIMIT '".$tcnt."'";
+                        LIMIT $tcnt";
 
             $result = mysqli_query($conn, $query);
             mysqli_close($conn);
