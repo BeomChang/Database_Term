@@ -69,3 +69,39 @@
     display: inline-block;
     font-size: 16px;
 }
+
+#btnA {
+    width: 100px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#btnB {
+    width: 100px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#btnC {
+    width: 100px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
