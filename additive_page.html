@@ -13,8 +13,11 @@
 
         <div id="q4_a">
             <form id="q4_a_Form" name="q4_a_Form" action="query_A.php" method="POST">
-                <p>남자보다 여자가 많이 산 상품의 이름</p>
-                <input type="submit" value="A번" id="btnA"><br>
+                <fieldset>
+                    <legend>남자보다 여자가 많이 산 상품의 이름</legend>
+                    
+                    <input type="submit" value="A번" id="btnA"><br>
+                </fieldset>
             </form>
         </div>
 
@@ -22,6 +25,7 @@
             <form id="q4_b_Form" name="q4_b_Form" action="query_B.php" method="POST">
                 <fieldset>
                     <legend>주어진 날 이전에 가장 많은 거래(금액기준)가 이루어진 k가지 상품</legend>
+
                     <label for="tdate">거래 일자: </label>
                     <input type="date" id="tdate" name="tdate" required><br>
                     <label for="tcnt">k: </label>
@@ -34,11 +38,14 @@
 
         <div id="q4_c">
             <form id="q4_c_Form" name="q4_c_Form" action="query_C.php" method="POST">
-                <p>하나의 supplier에서 m번 이상의 제품을 산 고객의 이름</p>
-                <label for="pcnt">m: </label>
-                <input type="text" id="pcnt" name="pcnt" required><br><br>
+                <fieldset>
+                    <legend>하나의 supplier에서 m번 이상의 제품을 산 고객의 이름</legend>
 
-                <input type="submit" value="C번" id="btnC"><br>
+                    <label for="pcnt">m: </label>
+                    <input type="text" id="pcnt" name="pcnt" required><br><br>
+
+                    <input type="submit" value="C번" id="btnC"><br>
+                </fieldset>
             </form>
         </div>
     </body>
