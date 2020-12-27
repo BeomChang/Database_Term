@@ -56,7 +56,7 @@
             mysqli_close($conn);
         ?>
 
-        <h1>주어진 날 이전에 가장 많은 거래(금액기준)가 이루어진 <?php echo($tcnt)?>가지 상품 목록</h1>
+        <h1><?php echo($tdate)?> 이전에 가장 많은 거래(금액기준)가 이루어진 <?php echo($tcnt)?>가지 상품 목록</h1>
         <div>
             <table>
                 <tr>
