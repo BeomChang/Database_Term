@@ -52,7 +52,7 @@
             mysqli_close($conn);
         ?>
 
-        <h1>하나의 supplier에서 m번 이상의 제품을 산 고객의 이름</h1>
+        <h1>하나의 supplier에서 <?php echo($pcnt)?>번 이상의 제품을 산 고객의 이름</h1>
         <div>
             <table>
                 <tr>
